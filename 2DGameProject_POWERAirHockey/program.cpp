@@ -23,7 +23,7 @@ const unsigned int SCREEN_WIDTH = 800;
 // The height of the screen
 const unsigned int SCREEN_HEIGHT = 600;
 
-Game Breakout(SCREEN_WIDTH, SCREEN_HEIGHT);
+Game POWER_AirHockey(SCREEN_WIDTH, SCREEN_HEIGHT);
 
 int main(int argc, char* argv[])
 {
@@ -36,7 +36,7 @@ int main(int argc, char* argv[])
 #endif
     glfwWindowHint(GLFW_RESIZABLE, false);
 
-    GLFWwindow* window = glfwCreateWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "Breakout", nullptr, nullptr);
+    GLFWwindow* window = glfwCreateWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "POWER AirHockey", nullptr, nullptr);
     glfwMakeContextCurrent(window);
 
     // glad: load all OpenGL function pointers
@@ -58,7 +58,7 @@ int main(int argc, char* argv[])
 
     // initialize game
     // ---------------
-    Breakout.Init();
+    POWER_AirHockey.Init();
 
     // deltaTime variables
     // -------------------
@@ -76,17 +76,17 @@ int main(int argc, char* argv[])
 
         // manage user input
         // -----------------
-        Breakout.ProcessInput(deltaTime);
+        POWER_AirHockey.ProcessInput(deltaTime);
 
         // update game state
         // -----------------
-        Breakout.Update(deltaTime);
+        POWER_AirHockey.Update(deltaTime);
 
         // render
         // ------
         glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
-        Breakout.Render();
+        POWER_AirHockey.Render();
 
         glfwSwapBuffers(window);
     }
@@ -107,9 +107,9 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
     if (key >= 0 && key < 1024)
     {
         if (action == GLFW_PRESS)
-            Breakout.Keys[key] = true;
+            POWER_AirHockey.Keys[key] = true;
         else if (action == GLFW_RELEASE)
-            Breakout.Keys[key] = false;
+            POWER_AirHockey.Keys[key] = false;
     }
 }
 
